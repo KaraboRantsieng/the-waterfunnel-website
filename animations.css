@@ -1,0 +1,201 @@
+/* ========================================
+   THE WATERFUNNEL — ANIMATIONS
+   ======================================== */
+
+/* ===== SCROLL ANIMATIONS ===== */
+.reveal-up,
+.reveal-left,
+.reveal-right {
+  opacity: 0;
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal-up { transform: translateY(48px); }
+.reveal-left { transform: translateX(-56px); }
+.reveal-right { transform: translateX(56px); }
+
+.reveal-up.visible,
+.reveal-left.visible,
+.reveal-right.visible {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* Stagger delays */
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+.delay-5 { transition-delay: 0.5s; }
+
+/* ===== MARQUEE ===== */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ===== SCROLL HINT ===== */
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.6; transform: scaleY(1); }
+  50% { opacity: 1; transform: scaleY(1.3); }
+}
+
+/* ===== PARTICLES ===== */
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(144,224,239,0.6), rgba(0,180,216,0.2));
+  animation: floatParticle linear infinite;
+  pointer-events: none;
+}
+
+@keyframes floatParticle {
+  0% {
+    transform: translateY(100vh) scale(0);
+    opacity: 0;
+  }
+  10% { opacity: 1; }
+  90% { opacity: 0.6; }
+  100% {
+    transform: translateY(-10vh) scale(1);
+    opacity: 0;
+  }
+}
+
+/* ===== HERO RIPPLE ===== */
+.hero-content .btn-primary {
+  animation: pulseGlow 2.5s ease-in-out infinite;
+}
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 8px 30px rgba(0,180,216,0.35); }
+  50% { box-shadow: 0 8px 50px rgba(0,180,216,0.6), 0 0 0 8px rgba(0,180,216,0.08); }
+}
+
+/* ===== WATER RIPPLE EFFECT ===== */
+@keyframes waterRipple {
+  0% { transform: scale(0.9); opacity: 1; }
+  100% { transform: scale(2); opacity: 0; }
+}
+
+/* ===== PRODUCT CARD SHINE ===== */
+.product-card::before {
+  content: '';
+  position: absolute;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background: linear-gradient(135deg,
+    transparent 0%,
+    transparent 40%,
+    rgba(255,255,255,0.08) 50%,
+    transparent 60%,
+    transparent 100%
+  );
+  transform: rotate(45deg) translateX(-100%);
+  transition: transform 0.6s ease;
+  pointer-events: none;
+}
+.product-card:hover::before {
+  transform: rotate(45deg) translateX(200%);
+}
+.product-card { position: relative; overflow: hidden; }
+
+/* ===== WHY CARD PULSE ===== */
+@keyframes iconFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.why-card:hover .why-icon {
+  animation: iconFloat 0.9s ease-in-out infinite;
+}
+
+/* ===== LOADING SHIMMER ===== */
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+/* ===== NAVBAR LOGO GLOW ===== */
+@keyframes logoPulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(0,180,216,0.4); }
+  50% { box-shadow: 0 0 35px rgba(0,180,216,0.7); }
+}
+.logo-img { animation: logoPulse 3s ease-in-out infinite; }
+
+/* ===== GALLERY ENTRANCE ===== */
+.gallery-item {
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.5s ease,
+              border-radius 0.3s ease;
+}
+.gallery-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 20px 50px rgba(0,180,216,0.25);
+  border-radius: 20px;
+  z-index: 2;
+}
+
+/* ===== CONTACT FORM FOCUS ===== */
+.form-group input:focus,
+.form-group textarea:focus {
+  animation: inputPop 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+@keyframes inputPop {
+  0% { transform: scale(0.99); }
+  100% { transform: scale(1); }
+}
+
+/* ===== BACKGROUND BLOB ===== */
+.why-us::after {
+  content: '';
+  position: absolute;
+  top: -200px; right: -200px;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,180,216,0.05) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+.why-us { position: relative; }
+.why-us .container { position: relative; z-index: 1; }
+
+/* ===== TYPEWRITER CURSOR ===== */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ===== STAT NUMBER COUNTER ===== */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== SECTION FADE GRADIENT ===== */
+.about::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, var(--aqua), transparent);
+  opacity: 0.6;
+}
+.about { position: relative; }
+
+/* ===== WA FLOAT BOUNCE ===== */
+@keyframes waBounce {
+  0%, 100% { transform: scale(1) translateY(0); }
+  50% { transform: scale(1.05) translateY(-4px); }
+}
+.wa-float { animation: waBounce 3s ease-in-out infinite; }
+.wa-float:hover { animation: none; }
+
+/* ===== SMOOTH SCROLL PROGRESS LINE ===== */
+.scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--aqua), var(--lime));
+  z-index: 9999;
+  transition: width 0.1s ease;
+  box-shadow: 0 0 10px rgba(0,180,216,0.5);
+}
