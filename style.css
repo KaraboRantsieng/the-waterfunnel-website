@@ -298,6 +298,7 @@ ul { list-style: none; }
   text-align: center;
   padding: 0 24px;
   max-width: 800px;
+  top: 48px;
 }
 
 .hero-badge {
