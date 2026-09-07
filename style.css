@@ -1172,6 +1172,13 @@ ul { list-style: none; }
 
 @media (max-width: 768px) {
   .section-pad { padding: 70px 0; }
+  .hero {
+    height: auto;
+    min-height: 0;
+    padding: 130px 0 100px;
+  }
+  .hero-content { top: 0; }
+  .logo-img { width: 44px; height: 44px; }
   .nav-links {
     display: none;
     position: fixed;
