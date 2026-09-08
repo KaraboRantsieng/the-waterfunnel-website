@@ -148,10 +148,12 @@ galleryItems.forEach((item, i) => {
   item.addEventListener('click', () => openLightbox(i));
 });
 
-lightboxClose.addEventListener('click', closeLightbox);
-lightboxPrev.addEventListener('click', () => navigateLightbox(-1));
-lightboxNext.addEventListener('click', () => navigateLightbox(1));
-lightbox.querySelector('.lightbox-backdrop').addEventListener('click', closeLightbox);
+if (lightbox) {
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightboxPrev.addEventListener('click', () => navigateLightbox(-1));
+  lightboxNext.addEventListener('click', () => navigateLightbox(1));
+  lightbox.querySelector('.lightbox-backdrop').addEventListener('click', closeLightbox);
+}
 
 // Keyboard navigation
 document.addEventListener('keydown', e => {
@@ -184,8 +186,10 @@ function closeVideoModal() {
   document.body.style.overflow = '';
 }
 
-videoModalClose.addEventListener('click', closeVideoModal);
-videoModal.querySelector('.video-modal-backdrop').addEventListener('click', closeVideoModal);
+if (videoModal) {
+  videoModalClose.addEventListener('click', closeVideoModal);
+  videoModal.querySelector('.video-modal-backdrop').addEventListener('click', closeVideoModal);
+}
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeVideoModal();
 });
