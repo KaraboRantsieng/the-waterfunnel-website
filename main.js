@@ -155,7 +155,7 @@ lightbox.querySelector('.lightbox-backdrop').addEventListener('click', closeLigh
 
 // Keyboard navigation
 document.addEventListener('keydown', e => {
-  if (!lightbox.classList.contains('active')) return;
+  if (!lightbox || !lightbox.classList.contains('active')) return;
   if (e.key === 'Escape') closeLightbox();
   if (e.key === 'ArrowLeft') navigateLightbox(-1);
   if (e.key === 'ArrowRight') navigateLightbox(1);
@@ -178,6 +178,7 @@ videoThumbs.forEach(thumb => {
 });
 
 function closeVideoModal() {
+  if (!videoModal) return;
   videoModal.classList.remove('active');
   videoIframe.src = '';
   document.body.style.overflow = '';
