@@ -304,8 +304,12 @@ const statsObserver = new IntersectionObserver(entries => {
     if (entry.isIntersecting) {
       const el = entry.target;
       const text = el.textContent;
-      if (text.includes('%')) animateCounter(el, 100, '%');
-      else if (text.includes('+')) animateCounter(el, parseInt(text), '+');
+      if (text.includes('%')) {
+        animateCounter(el, 100, '%');
+      } else if (text.includes('+')) {
+        const numericValue = Number.parseFloat(text.match(/[0-9]+(?:\.[0-9]+)?/)?.[0]);
+        animateCounter(el, Number.isFinite(numericValue) ? numericValue : 100, '+');
+      }
       statsObserver.unobserve(el);
     }
   });
