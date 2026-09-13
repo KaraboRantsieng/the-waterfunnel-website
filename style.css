@@ -1352,6 +1352,10 @@ ul { list-style: none; }
   font-size: 0.82rem;
   color: rgba(255,255,255,0.35);
 }
+.footer-credit-link:hover {
+  text-decoration: underline;
+  color: rgba(255,255,255,0.55);
+}
 
 /* ===== WHATSAPP FLOAT ===== */
 .wa-float {
