@@ -1455,7 +1455,7 @@ ul { list-style: none; }
   .catalogue-grid, .catalogue-grid-small { grid-template-columns: 1fr; }
   .catalogue-tabs { top: 72px; }
   .catalogue-tabs-list { justify-content: center; overflow: visible; flex-wrap: wrap; }
-  .values-grid, .awards-grid { grid-template-columns: 1fr; }
+  .values-grid, .awards-grid, .principles-grid { grid-template-columns: 1fr; }
   .promise-callout { padding: 36px 26px; }
   .hero {
     height: auto;
